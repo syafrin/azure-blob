@@ -113,7 +113,9 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
    if(isset($_POST['submit'])){
     $nama=$_FILES['image']['name'];
     $direktori=$_FILES['image']['tmp_name'];
-    $connectionString = "DefaultEndpointsProtocol=https;AccountName=".getenv('ACCOUNT_NAME').";AccountKey=".getenv('ACCOUNT_KEY');
+   // $connectionString = "DefaultEndpointsProtocol=https;AccountName=".getenv('ACCOUNT_NAME').";AccountKey=".getenv('ACCOUNT_KEY');
+       $connectionString = "DefaultEndpointsProtocol=https;AccountName=syafrinfiles;AccountKey=uBTS2Mxt7TaswiE3O5Jvrbd7HC3jf6424RbDcOiPbr9x05vkedsNsFNSr2Y8QInQ4jnHwUc286tHceevZtE59g==;EndpointSuffix=core.windows.net";
+       
             $blobClient = BlobRestProxy::createBlobService($connectionString);
             $createContainerOptions = new CreateContainerOptions();
 
