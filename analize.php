@@ -13,7 +13,7 @@
         // **********************************************
  
         // Replace <Subscription Key> with your valid subscription key.
-        var subscriptionKey = "<subscriptionKey>";
+        var subscriptionKey = "f1ca3a4f0722417fa8ef4eaef64166a8";
  
         // You must use the same Azure region in your REST API method as you used to
         // get your subscription keys. For example, if you got your subscription keys
