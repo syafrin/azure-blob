@@ -125,7 +125,7 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                                         foreach ($result->getBlobs() as $blob)
                                         {  
                                                     echo"<div class='container'>";
-                                                    echo "Uploading syafrinblob: ".PHP_EOL;
+                                                    echo "berhasil upload: ".PHP_EOL;
                                                     echo $nama;
                                                     echo "<br /><br/>";
                                         ?>
