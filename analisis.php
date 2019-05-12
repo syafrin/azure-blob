@@ -129,10 +129,10 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                                                     echo $nama;
                                                     echo "<br /><br/>";
                                         ?>
-                                                    <img src="<?php  echo $blob->getUrl(); ?>" class="img-responsive" alt="Responsive image" width="300" height="300">
+                                                    <img src="<?php  echo $blob->getUrl(); ?>" class="img-responsive" alt="Responsive image" style="width:300px; height:200px;">
                                                      <br/>                               
                                                     <input type="text" class="col-xs-6" name="inputImage" id="inputImage"value="<?php  echo $blob->getUrl(); ?>" />
-                                                    <br/><br/><button class="btn btn-danger" onclick="processImage()">Analyze image</button>
+                                                    <br/><br/><button class="btn btn-danger" onclick="processImage()">Analyze image</button>&nbsp; &nbsp;<a href="index.php" class="btn btn-success">back to form upload</a>
                                                     <br><br>
 
                                                     <div id="wrapper" style="width:1020px; display:table;">
@@ -145,7 +145,7 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                                                     <div id="imageDiv" style="width:400px; height:400px; display:table-cell;">
                                                         Source image:
                                                         <br><br>
-                                                        <img id="sourceImage" width="400" /><br/>
+                                                        <img id="sourceImage" style="width:400px; height:300px;"/><br/>
                                                         <span id="captionSpan"></span><br>
                                                     </div>
                                                     </div>
