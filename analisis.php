@@ -94,10 +94,7 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
     $size=$_FILES['image']['size'];
     $type=$_FILES['image']['type'];
         if(!empty($direktori)){
-             if(isset($_POST['submit'])){
-               
-               if(!empty($direktori)){
-                   if($type=="image/jpeg" || $type=="image/jpg" || $type=="image/gif" || $type=="image/x-png"){
+                 if($type=="image/jpeg" || $type=="image/jpg" || $type=="image/gif" || $type=="image/x-png"){
                             if($size <= 2024000){
                        // $connectionString = "DefaultEndpointsProtocol=https;AccountName=".getenv('ACCOUNT_NAME').";AccountKey=".getenv('ACCOUNT_KEY');
                            $connectionString = "DefaultEndpointsProtocol=https;AccountName=syafrinfiles;AccountKey=uBTS2Mxt7TaswiE3O5Jvrbd7HC3jf6424RbDcOiPbr9x05vkedsNsFNSr2Y8QInQ4jnHwUc286tHceevZtE59g==;EndpointSuffix=core.windows.net";
@@ -174,7 +171,7 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                                     $error_message = $e->getMessage();
                                     echo $code.": ".$error_message."<br />";
                                 }
-                                 }else{
+                            }else{
                                 echo"<div class='alert alert-primary'>
                                 oooopps kayaknya kamu file gambar lebih besar dari 2mb  <a href='index.php' class='alert-link'>kembali</a>
                         </div>";
