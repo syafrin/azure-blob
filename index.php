@@ -25,20 +25,13 @@
             <div class="form-group">
                 <label for="exampleInputFile">Input File </label>
                 <input type="file" name="image" accept="image/*">
-                <p class="help-block">File Image.</p>
+                 <p class="help-block">Pastikan Tipe File Image  jpg/jpeg/giff/png & image berukuran di bawah 2mb untuk percepat upload </p>
             </div>
            
             <input type="submit" name="submit" class="btn btn-primary" value="submit">
             </form><br/><br/>
        
-<!--<h4>Latihan Upload Gambar To Cloud Azure</h4>
-   <form name="form_upload" method="post" action="" enctype="multipart/form-data">
-   Input Gambar Disini
-   <input type="file" accept="image/*" name="image"/>
-   
-   <input type="submit" name="submit" value="upload">
-   
-</form>-->
+
 
 
 </div>
