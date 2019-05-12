@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Analyze Sample</title>
+    <title>Analisis Sample</title>
    
    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 
@@ -90,92 +90,87 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
    if(isset($_POST['submit'])){
     $nama=$_FILES['image']['name'];
     $direktori=$_FILES['image']['tmp_name'];
-   // $connectionString = "DefaultEndpointsProtocol=https;AccountName=".getenv('ACCOUNT_NAME').";AccountKey=".getenv('ACCOUNT_KEY');
-       $connectionString = "DefaultEndpointsProtocol=https;AccountName=syafrinfiles;AccountKey=uBTS2Mxt7TaswiE3O5Jvrbd7HC3jf6424RbDcOiPbr9x05vkedsNsFNSr2Y8QInQ4jnHwUc286tHceevZtE59g==;EndpointSuffix=core.windows.net";
-       
-            $blobClient = BlobRestProxy::createBlobService($connectionString);
-            $createContainerOptions = new CreateContainerOptions();
-            $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
-            
-            $createContainerOptions->addMetaData("key1", "value1");
-            $createContainerOptions->addMetaData("key2", "value2");
-            $containerName = "syafrinblobs".generateRandomString();
-            try {
-                // Create container.
-                $blobClient->createContainer($containerName, $createContainerOptions);
-              
-               
-                
-                $content = fopen($direktori, "r");
-                 
-                //Upload blob
-               // $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
-               $blobClient->createBlockBlob($containerName, $nama, $content);
-                // List blobs.
-                $listBlobsOptions = new ListBlobsOptions();
-               // $listBlobsOptions->setPrefix("File_upload");
-              
-               /* do{
-                    $result = $blobClient->listBlobs($containerName);
-                    foreach ($result->getBlobs() as $blob)
-                    {
-                        echo $blob->getName().": ".$blob->getUrl()."<br />";
-                    }
-                
-                    $listBlobsOptions->setContinuationToken($result->getContinuationToken());
-                } while($result->getContinuationToken());
-                echo "<br />";*/
-                do{
-                    $result = $blobClient->listBlobs($containerName);
-                    foreach ($result->getBlobs() as $blob)
-                    {  
-                                echo"<div class='container'>";
-                                echo "Uploading syafrinblob: ".PHP_EOL;
-                                echo $nama;
-                                echo "<br /><br/>";
-                    ?>
-                                <img src="<?php  echo $blob->getUrl(); ?>" class="img-responsive" alt="Responsive image" width="300" height="300">
-                                 <br/>                               
-                                <input type="text" class="col-xs-6" name="inputImage" id="inputImage"value="<?php  echo $blob->getUrl(); ?>" />
-                                <br/><br/><button class="btn btn-danger" onclick="processImage()">Analyze image</button>
-                                <br><br>
+        if(!empty($direktori)){
+                       // $connectionString = "DefaultEndpointsProtocol=https;AccountName=".getenv('ACCOUNT_NAME').";AccountKey=".getenv('ACCOUNT_KEY');
+                           $connectionString = "DefaultEndpointsProtocol=https;AccountName=syafrinfiles;AccountKey=uBTS2Mxt7TaswiE3O5Jvrbd7HC3jf6424RbDcOiPbr9x05vkedsNsFNSr2Y8QInQ4jnHwUc286tHceevZtE59g==;EndpointSuffix=core.windows.net";
 
-                                <div id="wrapper" style="width:1020px; display:table;">
-                                <div id="jsonOutput" style="width:600px; display:table-cell;">
-                                    Hasil Output:
-                                    <br><br>
-                                    <textarea id="responseTextArea" class="UIInput"
-                                            style="width:580px; height:400px;"></textarea>
-                                </div>
-                                <div id="imageDiv" style="width:400px; height:400px; display:table-cell;">
-                                    Source image:
-                                    <br><br>
-                                    <img id="sourceImage" width="400" /><br/>
-                                    <span id="captionSpan"></span><br>
-                                </div>
-                                </div>
-                        </div>       
-                        
-                        
-                      <?php
-                    }
-                
-                    $listBlobsOptions->setContinuationToken($result->getContinuationToken());
-                } while($result->getContinuationToken());
-                echo "<br />";
-               
-            }
-            catch(ServiceException $e){
-                               $code = $e->getCode();
-                $error_message = $e->getMessage();
-                echo $code.": ".$error_message."<br />";
-            }
-            catch(InvalidArgumentTypeException $e){
-                
-                $code = $e->getCode();
-                $error_message = $e->getMessage();
-                echo $code.": ".$error_message."<br />";
-            }
+                                $blobClient = BlobRestProxy::createBlobService($connectionString);
+                                $createContainerOptions = new CreateContainerOptions();
+                                $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
+
+                                $createContainerOptions->addMetaData("key1", "value1");
+                                $createContainerOptions->addMetaData("key2", "value2");
+                                $containerName = "syafrinblobs".generateRandomString();
+                                try {
+                                    // Create container.
+                                    $blobClient->createContainer($containerName, $createContainerOptions);
+
+
+
+                                    $content = fopen($direktori, "r");
+
+                                    //Upload blob
+                                  
+                                   $blobClient->createBlockBlob($containerName, $nama, $content);
+                                    // List blobs.
+                                    $listBlobsOptions = new ListBlobsOptions();
+                                  
+                                    do{
+                                        $result = $blobClient->listBlobs($containerName);
+                                        foreach ($result->getBlobs() as $blob)
+                                        {  
+                                                    echo"<div class='container'>";
+                                                    echo "Uploading syafrinblob: ".PHP_EOL;
+                                                    echo $nama;
+                                                    echo "<br /><br/>";
+                                        ?>
+                                                    <img src="<?php  echo $blob->getUrl(); ?>" class="img-responsive" alt="Responsive image" width="300" height="300">
+                                                     <br/>                               
+                                                    <input type="text" class="col-xs-6" name="inputImage" id="inputImage"value="<?php  echo $blob->getUrl(); ?>" />
+                                                    <br/><br/><button class="btn btn-danger" onclick="processImage()">Analyze image</button>
+                                                    <br><br>
+
+                                                    <div id="wrapper" style="width:1020px; display:table;">
+                                                    <div id="jsonOutput" style="width:600px; display:table-cell;">
+                                                        Hasil Output:
+                                                        <br><br>
+                                                        <textarea id="responseTextArea" class="UIInput"
+                                                                style="width:580px; height:400px;"></textarea>
+                                                    </div>
+                                                    <div id="imageDiv" style="width:400px; height:400px; display:table-cell;">
+                                                        Source image:
+                                                        <br><br>
+                                                        <img id="sourceImage" width="400" /><br/>
+                                                        <span id="captionSpan"></span><br>
+                                                    </div>
+                                                    </div>
+                                            </div>       
+
+
+                                          <?php
+                                        }
+
+                                        $listBlobsOptions->setContinuationToken($result->getContinuationToken());
+                                    } while($result->getContinuationToken());
+                                    echo "<br />";
+
+                                }
+                                catch(ServiceException $e){
+                                                   $code = $e->getCode();
+                                    $error_message = $e->getMessage();
+                                    echo $code.": ".$error_message."<br />";
+                                }
+                                catch(InvalidArgumentTypeException $e){
+
+                                    $code = $e->getCode();
+                                    $error_message = $e->getMessage();
+                                    echo $code.": ".$error_message."<br />";
+                                }
+       }else{
+           echo"<div class='alert alert-primary' role='alert'>
+                   oooopps kayaknya kamu tidak memilih sebuah file gambar <a href='index.php' class='alert-link'>kembali</a>
+           </div>";
+       }
 }
 ?>
 </div>
