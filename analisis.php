@@ -88,14 +88,14 @@ use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
    if(isset($_POST['submit'])){
+    
     $nama=$_FILES['image']['name'];
     $direktori=$_FILES['image']['tmp_name'];
+    $size=$_FILES['image']['size'];
+    $type=$_FILES['image']['type'];
         if(!empty($direktori)){
              if(isset($_POST['submit'])){
-               $nama=$_FILES['image']['name'];
-               $direktori=$_FILES['image']['tmp_name'];
-               $size=$_FILES['image']['size'];
-               $type=$_FILES['image']['type'];
+               
                if(!empty($direktori)){
                    if($type=="image/jpeg" || $type=="image/jpg" || $type=="image/gif" || $type=="image/x-png"){
                             if($size <= 2024000){
