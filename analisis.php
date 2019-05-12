@@ -187,7 +187,11 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                    oooopps kayaknya kamu tidak memilih sebuah file gambar <a href='index.php' class='alert-link'>kembali</a>
            </div>";
        }
-}
+}else{
+             echo"<div class='alert alert-primary' role='alert'>
+                   oooopps untuk melakukan analisis gambar silahkan upload file gambarnya <a href='index.php' class='alert-link'>disini</a>
+           </div>";
+   }
 ?>
 </div>
 </body>
